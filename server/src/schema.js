@@ -4,12 +4,11 @@ const typeDefs = gql`
   # schema defined here
   type Query {
     tracksForHome: [Track!]!
-    spaceCats: [SpaceCat!]!
   }
 
   type Author {
     id: ID!
-    name: String!
+    name: String
     photo: String
   }
 
@@ -20,19 +19,6 @@ const typeDefs = gql`
     thumbnail: String
     length: Int
     modulesCount: Int
-  }
-
-  type SpaceCat {
-    id: ID!
-    name: String!
-    age: Int
-    missions: Mission
-  }
-
-  type Mission {
-    id: ID!
-    name: String!
-    description: String!
   }
 `;
 
