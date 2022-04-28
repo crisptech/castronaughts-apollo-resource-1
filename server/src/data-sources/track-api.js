@@ -1,5 +1,5 @@
 const { RESTDataSource } = require("apollo-datasource-rest");
-const { API_URL } = require("../constants");
+const API_URL = require("../constants");
 
 class TrackAPI extends RESTDataSource {
   constructor() {

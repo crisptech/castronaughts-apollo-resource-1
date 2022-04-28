@@ -1,6 +1,16 @@
-const fetch = require("node-fetch");
-const { API_URL } = require("./constants");
-
-export const resolvers = {
-  Query: {},
+const resolvers = {
+  Query: {
+    tracksForHome: (_, __, context) => {
+      const { dataSources } = context;
+      return dataSources.trackAPI.getTracksForHome();
+    },
+  },
+  Track: {
+    // Track's parent is tracksForHome, since it is
+    author: ({ authorId }, _, { dataSources }) => {
+      return dataSources.trackAPI.getAuthor(authorId);
+    },
+  },
 };
+
+module.exports = resolvers;
