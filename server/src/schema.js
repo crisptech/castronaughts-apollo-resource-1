@@ -19,6 +19,16 @@ const typeDefs = gql`
     thumbnail: String
     length: Int
     modulesCount: Int
+    description: String
+    numberOfViews: Int
+    modules: [Module!]
+  }
+
+  type Module {
+    id: ID!
+    title: String
+    # Length of module in minutes
+    length: Int
   }
 `;
 
