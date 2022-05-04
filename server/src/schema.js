@@ -4,6 +4,22 @@ const typeDefs = gql`
   # schema defined here
   type Query {
     tracksForHome: [Track!]!
+    track(id: ID!): Track!
+  }
+
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+
+  type IncrementTrackViewsResponse {
+    # Returns the resultant track
+    track: Track
+    # Returns the status of the mutation
+    code: Int!
+    # Returns whether the mutation was succesfull or not
+    success: Boolean!
+    # Returns information on mutation, see if all response was returned as expect
+    info: String
   }
 
   type Author {
@@ -21,7 +37,7 @@ const typeDefs = gql`
     modulesCount: Int
     description: String
     numberOfViews: Int
-    modules: [Module!]
+    modules: [Module!]!
   }
 
   type Module {

@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, QueryResult } from "../components";
 import { gql, useQuery } from "@apollo/client";
 import TrackCard from "../containers/track-card";
+import { Link } from "@reach/router";
 
 const TRACKS = gql`
   query getTracks {
@@ -31,7 +32,9 @@ const Tracks = () => {
     <Layout grid>
       <QueryResult loading={loading} error={error} data={data}>
         {data?.tracksForHome?.map((track) => (
+          // <Link to={`track/${track.id}`}>
           <TrackCard key={track.id} track={track} />
+          // </Link>
         ))}
       </QueryResult>
     </Layout>
