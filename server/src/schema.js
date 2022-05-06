@@ -33,11 +33,12 @@ const typeDefs = gql`
     title: String!
     author: Author!
     thumbnail: String
-    length: Int
+    length: Int @deprecated(reason: "replaced with durationInSeconds field")
     modulesCount: Int
     description: String
     numberOfViews: Int
     modules: [Module!]!
+    durationInSeconds: Int
   }
 
   type Module {
@@ -45,6 +46,8 @@ const typeDefs = gql`
     title: String
     # Length of module in minutes
     length: Int
+      @deprecated(reason: "replaced with the durationInSeconds field!")
+    durationInSeconds: Int
   }
 `;
 
